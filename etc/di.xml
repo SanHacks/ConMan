@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+  ~ /**
+  ~  * Copyright © Gundo Sifhufhi. All rights reserved.
+  ~  * See Github_Sanhacks.txt for license details.
+  ~  */
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="SageBytez\ConMan\Api\Data\ConManInterface" type="SageBytez\ConMan\Model\Data\ConManData"/>
+    <preference for="SageBytez\ConMan\Api\GetConManListInterface" type="SageBytez\ConMan\Query\ConMan\GetListQuery"/>
+    <preference for="SageBytez\ConMan\Api\SaveConManInterface" type="SageBytez\ConMan\Command\ConMan\SaveCommand"/>
+    <preference for="SageBytez\ConMan\Api\DeleteConManByIdInterface"
+                type="SageBytez\ConMan\Command\ConMan\DeleteByIdCommand"/>
+    <preference for="SageBytez\ConMan\Api\Data\ConManSearchResultsInterface"
+                type="SageBytez\ConMan\Model\ConManSearchResults"/>
+    <virtualType name="ConMan" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="resourceModel" xsi:type="string">
+                Gundo\Openstores\Model\ResourceModel\OpenstoresModel\OpenstoresCollection
+            </argument>
+            <argument name="mainTable" xsi:type="string">con_man</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument xsi:type="array">
+                <item xsi:type="string" name="ConMan_data_source">ConMan</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+  ~ /**
+  ~  * Copyright © Gundo Sifhufhi. All rights reserved.
+  ~  * See Github_Sanhacks.txt for license details.
+  ~  */
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="SageBytez_ConMan::management" sortOrder="100" title="Con Man Management" module="SageBytez_ConMan"
+             parent="Magento_Integration::system_extensions" resource="SageBytez_ConMan::management" translate="title"
+             action="con_man/conman/index"/>
+        <add id="SageBytez_ConMan::listing" sortOrder="100" title="ConMan" module="SageBytez_ConMan"
+             parent="Gundo_CleanUp::cleanup" resource="SageBytez_ConMan::listing" translate="title"
+             action="con_man/conman/conman"/>
+    </menu>
+</config>

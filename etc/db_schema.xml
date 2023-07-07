@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+  ~ /**
+  ~  * Copyright © Gundo Sifhufhi. All rights reserved.
+  ~  * See Github_Sanhacks.txt for license details.
+  ~  */
+  -->
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="con_man" resource="default" engine="innodb" comment="ConMan">
+        <column xsi:type="int" name="con_man_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Con Man Id Column"/>
+        <column xsi:type="int" name="product_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Product Id Column"/>
+        <column xsi:type="int" name="store_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Store Id Column"/>
+        <column xsi:type="int" name="customer_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Customer Id Column"/>
+        <column xsi:type="int" name="customer_group" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Customer Group Column"/>
+        <column xsi:type="varchar" name="category" nullable="false" length="255" comment="Category Column"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="con_man_id"/>
+        </constraint>
+        <index referenceId="CON_MAN_CON_MAN_ID" indexType="btree">
+            <column name="con_man_id"/>
+        </index>
+    </table>
+</schema>

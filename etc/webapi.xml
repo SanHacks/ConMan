@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+  ~ /**
+  ~  * Copyright © Gundo Sifhufhi. All rights reserved.
+  ~  * See Github_Sanhacks.txt for license details.
+  ~  */
+  -->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/con-man/get-list" method="GET">
+        <service class="SageBytez\ConMan\Api\GetConManListInterface" method="execute"/>
+        <resources>
+            <resource ref="SageBytez_ConMan::management"/>
+        </resources>
+    </route>
+    <route url="/V1/con-man/save" method="POST">
+        <service class="SageBytez\ConMan\Api\SaveConManInterface" method="execute"/>
+        <resources>
+            <resource ref="SageBytez_ConMan::management"/>
+        </resources>
+    </route>
+    <route url="/V1/con-man/:entityId" method="DELETE">
+        <service class="SageBytez\ConMan\Api\DeleteConManByIdInterface" method="execute"/>
+        <resources>
+            <resource ref="SageBytez_ConMan::management"/>
+        </resources>
+    </route>
+</routes>
