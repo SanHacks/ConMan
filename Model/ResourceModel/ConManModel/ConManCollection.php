@@ -22,7 +22,7 @@ class ConManCollection extends AbstractCollection
     /**
      * Initialize collection model.
      */
-    protected function _construct()
+    protected function _construct(): void
     {
         $this->_init(ConManModel::class, ConManResource::class);
     }

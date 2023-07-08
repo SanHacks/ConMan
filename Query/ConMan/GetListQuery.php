@@ -8,9 +8,9 @@
 
 namespace SageBytez\ConMan\Query\ConMan;
 
+use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 use Magento\Framework\Api\SearchCriteriaBuilder;
 use Magento\Framework\Api\SearchCriteriaInterface;
-use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 use SageBytez\ConMan\Api\Data\ConManSearchResultsInterface;
 use SageBytez\ConMan\Api\GetConManListInterface;
 use SageBytez\ConMan\Mapper\ConManDataMapper;

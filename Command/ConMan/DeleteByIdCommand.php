@@ -42,11 +42,7 @@ class DeleteByIdCommand implements DeleteConManByIdInterface
      * @param ConManModel $modelFactory
      * @param ConManResource $resource
      */
-    public function __construct(
-        LoggerInterface    $logger,
-        ConManModel $modelFactory,
-        ConManResource     $resource
-    )
+    public function __construct(LoggerInterface $logger, ConManModel $modelFactory, ConManResource $resource)
     {
         $this->logger = $logger;
         $this->modelFactory = $modelFactory;
@@ -64,24 +60,12 @@ class DeleteByIdCommand implements DeleteConManByIdInterface
             $this->resource->load($model, $entityId, ConManInterface::CON_MAN_ID);
 
             if (!$model->getData(ConManInterface::CON_MAN_ID)) {
-                throw new NoSuchEntityException(
-                    __('Could not find ConMan with id: `%id`',
-                        [
-                            'id' => $entityId
-                        ]
-                    )
-                );
+                throw new NoSuchEntityException(__('Could not find ConMan with id: `%id`', ['id' => $entityId]));
             }
 
             $this->resource->delete($model);
         } catch (Exception $exception) {
-            $this->logger->error(
-                __('Could not delete ConMan. Original message: {message}'),
-                [
-                    'message' => $exception->getMessage(),
-                    'exception' => $exception
-                ]
-            );
+            $this->logger->error(__('Could not delete ConMan. Original message: {message}'), ['message' => $exception->getMessage(), 'exception' => $exception]);
             throw new CouldNotDeleteException(__('Could not delete ConMan.'));
         }
     }
